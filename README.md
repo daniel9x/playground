@@ -13,11 +13,11 @@ Last Updated: July 14, 2016
 
 1. In order to run EMS locally, you will need a local instance of a Postgres 9.5 Database running on your machine.
 2. The backing EMS Database consists of 3 Tables.
-|   |
-|---|
-|   |
-|   |
-|   |
+|   |   |
+|---|---|
+|   |   |
+|   |   |
+|   |   |
 
 
 
