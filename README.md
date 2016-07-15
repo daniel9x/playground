@@ -9,7 +9,17 @@ Last Updated: July 14, 2016
 
 **- C O N F I D E N T I A L -**
 
-</center>
+## Build Steps
+
+1. In order to run EMS locally, you will need a local instance of a Postgres 9.5 Database running on your machine.
+2. The backing EMS Database consists of 3 Tables.
+|   |
+|---|
+|   |
+|   |
+|   |
+
+
 
 ## Overview
 
@@ -39,20 +49,20 @@ The Event Management System is entirely event driven, as the name suggests. Ther
 
 ## Scenarios
 
-1.  #### OrderCreate / Partner Pair Match
+1.  OrderCreate / Partner Pair Match
 
     1.  **Summarist** publishes an **Order Create** from Evonik to BASF to the **EMS** Queue.
     2.  **EMS** consumes the messages on the queue and checks to see if there is a rule for the message type (**Order Create**) and the sender/receiver (BASF/Evonik).
     3.  **EMS** finds a matching rule and checks for the related message type(s) on the rule.
     4.  The matching rule does not have a related message type. No comparison logic is appled, but the (mostly empty) result is persisted.
-2.  #### OrderCreate / Non-Partner Pair Match
+2.  OrderCreate / Non-Partner Pair Match
 
     1.  **Summarist** publishes an **Order Create** from Evonik to BASF to the **EMS** Queue.
     2.  **EMS** consumes the messages on the queue and checks to see if there is a rule for the message type (**Order Create**) and the sender/receiver (BASF/Evonik).
     3.  **EMS** does not find a match. **EMS** checks to see if there is a matching rule for the message type (**Order Create**) and the sender (Evonik).
     4.  **EMS** finds a matching rule and checks for the related message type(s) on the rule.
     5.  The matching rule does not have a related message type. No comparison logic is appled, but the (mostly empty) result is persisted.
-3.  #### OrderResponse / Order Create Match
+3.  OrderResponse / Order Create Match
 
     1.  **Summarist** publishes an **Order Response** from BASF to Evonik to the **EMS** Queue.
     2.  **EMS** consumes the messages on the queue and checks to see if there is a rule for the message type (**Order Response**) and the sender/receiver (Evonik/BASF).
